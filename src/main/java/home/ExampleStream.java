@@ -2,7 +2,7 @@ package home;
 
 import java.util.*;
 
-public class Main {
+public class ExampleStream {
     static class Book {
         String title;
         int pages;
@@ -64,19 +64,19 @@ public class Main {
 
     public static void main(String[] args) {
         List<Student> students = Arrays.asList(
-                new Student("Alice", Arrays.asList(
+                new Student("Serg", Arrays.asList(
                         new Book("Book A1", 100, 1999),
                         new Book("Book A2", 150, 2005),
                         new Book("Book A3", 200, 2010),
                         new Book("Book A4", 120, 2001),
                         new Book("Book A5", 80, 2015))),
-                new Student("Bob", Arrays.asList(
+                new Student("Sasha", Arrays.asList(
                         new Book("Book B1", 110, 2002),
                         new Book("Book B2", 90, 2000),
                         new Book("Book B3", 300, 1998),
                         new Book("Book B4", 400, 2003),
                         new Book("Book B5", 150, 2007))),
-                new Student("Charlie", Arrays.asList(
+                new Student("Tatiana", Arrays.asList(
                         new Book("Book C1", 250, 2004),
                         new Book("Book C2", 350, 2011),
                         new Book("Book C3", 120, 2008),
