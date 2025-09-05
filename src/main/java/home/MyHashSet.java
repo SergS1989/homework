@@ -1,7 +1,5 @@
 package home;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Objects;
 
 public class MyHashSet<T> {
@@ -17,6 +15,10 @@ public class MyHashSet<T> {
         this.arr = new Node[size];
     }
 
+    public int getSize() {
+        return size;
+    }
+
     static class Node<T> {
         int hash;
         private T key;
@@ -27,7 +29,6 @@ public class MyHashSet<T> {
             this.key = key;
             this.next = null;
         }
-
     }
 
     public void add(T param) {
@@ -54,15 +55,6 @@ public class MyHashSet<T> {
         size++;
     }
 
-    public void printAll() {
-        System.out.println();
-        for (Node<T> n : arr) {
-            if (n != null) {
-                System.out.println(n.key);
-            }
-        }
-    }
-
     public void remove(int param) {
         int hash = Objects.hashCode(param);
         int index = Math.abs(hash) % arr.length;
@@ -70,11 +62,10 @@ public class MyHashSet<T> {
         Node<T> curr = arr[index];
         if (curr == null) {
             System.out.println("Такокого элемента нет");
-            return;
+            throw new NullPointerException();
         }
 
         Node<T> prev = null;
-//        boolean findObj = true;
         while (curr != null) {
             if (curr.hash == hash && Objects.equals(curr.key, param)) {
                 if (prev == null) {
@@ -90,14 +81,14 @@ public class MyHashSet<T> {
         }
     }
 
-    public static void main(String[] args) {
-        MyHashSet<Integer> set = new MyHashSet<>();
-        set.add(5);
-        set.add(5);
-        set.add(1);
-        set.add(17);
-        set.add(33);
-        set.remove(33);
-        set.printAll();
+    public void printAll() {
+        for (Node<T> n : arr) {
+            if (n != null) {
+                while (n != null) {
+                    System.out.println(n.key);
+                    n = n.next;
+                }
+            }
+        }
     }
 }
